@@ -18,7 +18,6 @@ public partial class Character : CharacterBody2D
         camera = GetParent().GetNode<Camera2D>("Camera2D");
 
         camera.MakeCurrent();
-
     }
 
     public float cameraEdgeThreshold = 16.0f;
@@ -45,6 +44,7 @@ public partial class Character : CharacterBody2D
                         .SetTrans(Tween.TransitionType.Linear)
                         .SetEase(Tween.EaseType.InOut);
 
+            
             cameraTween.Finished += () => isTrackingPlayer = false;
         }
     }
