@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch8ata80bo2ar"]
+
+[ext_resource type="Script" uid="uid://bc20bva1t7lyb" path="res://Character.cs" id="1_oolk3"]
+[ext_resource type="Texture2D" uid="uid://ocvati2e16c0" path="res://Blob character.png" id="2_7ig0a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcuhw"]
+atlas = ExtResource("2_7ig0a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atbvg"]
+atlas = ExtResource("2_7ig0a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxxw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcuhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atbvg")
+}],
+"loop": true,
+"name": &"bounce",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Character" type="CharacterBody2D" parent="."]
+script = ExtResource("1_oolk3")
+
+[node name="Blobster" type="AnimatedSprite2D" parent="Character"]
+sprite_frames = SubResource("SpriteFrames_cxxw8")
+animation = &"bounce"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Character"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
