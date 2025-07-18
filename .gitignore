@@ -1,6 +1,5 @@
 .godot/
 /android/
 
-# IDE settings
 .vs/
 .vscode/
